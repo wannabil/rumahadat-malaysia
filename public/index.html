@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>🏡 Rumah Adat Malaysia · Seni bina tradisional dalam 3D</title>
+<meta name="description" content="Jelajahi rumah adat Malaysia dalam 3D: urai, potong dan pelajari makna setiap bahagiannya. Dibuat untuk MalayaPulse oleh wanbl.">
+<meta property="og:title" content="Rumah Adat Malaysia dalam 3D">
+<meta property="og:description" content="Urai, potong dan pelajari rumah tradisional Malaysia. Dibuat untuk MalayaPulse oleh wanbl.">
+<meta name="theme-color" content="#f7f2ea">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2a221b;--muted:#7d7064;--acc:#a8432a;--gold:#c8962e;--line:#e7ddd0}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
+[hidden]{display:none!important}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);z-index:5}
+.brand{font:600 22px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.2px}.brand small{display:block;font:500 11px Inter;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}.lang button{border:0;background:none;padding:7px 12px;font:600 12px Inter;cursor:pointer;color:var(--muted);min-height:36px}.lang button.on{background:var(--ink);color:#fff}
+main{max-width:1280px;margin:0 auto;padding:18px}
+.hero{padding:10px 0 18px}.hero h1{font:600 clamp(30px,6vw,52px)/1.05 "Cormorant Garamond",Georgia,serif;margin:0 0 8px}.hero h1 em{color:var(--acc);font-style:italic}.hero p{color:var(--muted);max-width:640px;margin:0}
+.picker{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 14px;scroll-snap-type:x mandatory}
+.pick{flex:0 0 auto;scroll-snap-align:start;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:10px 14px;cursor:pointer;text-align:left;min-width:170px;transition:.15s}
+.pick b{display:block;font:600 15px Inter}.pick span{font-size:12px;color:var(--muted)}.pick.on{border-color:var(--acc);box-shadow:0 0 0 2px color-mix(in srgb,var(--acc) 25%,transparent)}
+.stage{display:grid;grid-template-columns:1fr;gap:14px}
+.viewer{position:relative;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 50% 10%,#fffaf2,#eadfcd);border:1px solid var(--line);height:min(62vh,560px);min-height:360px}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;font:500 12px Inter;padding:5px 9px;border-radius:8px;transform:translate(-50%,-140%);white-space:nowrap}
+.hint{position:absolute;left:12px;top:12px;font-size:12px;color:var(--muted);background:#fffdf9cc;padding:5px 9px;border-radius:8px}
+.controls{position:absolute;left:10px;right:10px;bottom:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fffdf9ee;border:1px solid var(--line);border-radius:14px;padding:8px 12px}
+.controls label{font:600 12px Inter;display:flex;align-items:center;gap:8px;flex:1 1 180px}
+.controls input[type=range]{flex:1;accent-color:var(--acc);min-height:32px}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font:600 12px Inter;cursor:pointer;min-height:40px}.btn.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.panel h2{font:600 30px/1.1 "Cormorant Garamond",Georgia,serif;margin:0}.state{color:var(--acc);font:600 12px Inter;letter-spacing:.06em;text-transform:uppercase}
+.panel p{margin:10px 0}.parts{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.chip{border:1px solid var(--line);background:#fbf6ee;border-radius:999px;padding:6px 11px;font:500 12px Inter;cursor:pointer;min-height:34px}.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.part{border-top:1px dashed var(--line);margin-top:12px;padding-top:12px}.part h3{margin:0 0 4px;font:600 18px Inter}.part .t{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}.fact b{font:600 26px "Cormorant Garamond",serif;color:var(--acc);display:block}.fact span{font-size:13px;color:var(--muted)}
+footer{max-width:1280px;margin:26px auto 0;padding:22px 18px calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;color:var(--muted);font-size:13px}
+footer strong{color:var(--ink)}footer a{color:var(--acc)}
+.loading{position:absolute;inset:0;display:grid;place-items:center;font:italic 18px "Cormorant Garamond",serif;color:var(--muted)}
+@media(min-width:960px){.stage{grid-template-columns:1.6fr 1fr}.viewer{height:620px}.panel{max-height:620px;overflow:auto}}
+</style>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.169.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.169.0/examples/jsm/"}}</script>
+</head>
+<body>
+<header>
+  <div class="brand">Rumah Adat Malaysia<small>untuk MalayaPulse · oleh wanbl</small></div>
+  <div class="lang"><button data-l="ms" class="on">BM</button><button data-l="en">EN</button></div>
+</header>
+<main>
+  <section class="hero">
+    <h1 data-i="h1"></h1>
+    <p data-i="lead"></p>
+  </section>
+  <nav class="picker" id="picker"></nav>
+  <section class="stage">
+    <div class="viewer" id="viewer">
+      <div class="loading" id="loading">Memuatkan…</div>
+      <div class="hint" data-i="hint"></div>
+      <div class="tip" id="tip" hidden></div>
+      <div class="controls">
+        <label><span data-i="explode"></span><input id="explode" type="range" min="0" max="1" step="0.01" value="0"></label>
+        <button class="btn" id="cut" data-i="cut"></button>
+        <button class="btn" id="spin" data-i="spin"></button>
+        <button class="btn" id="reset" data-i="reset"></button>
+      </div>
+    </div>
+    <aside class="panel" id="panel"></aside>
+  </section>
+  <section class="facts" id="facts"></section>
+</main>
+<footer>
+  <div>🇲🇾 <span data-i="made"></span> <strong>MalayaPulse</strong> <span data-i="by"></span> <strong>wanbl</strong></div>
+  <div><span data-i="note"></span> <a href="https://rumahadat.id" target="_blank" rel="noopener">rumahadat.id</a></div>
+</footer>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+/* ---------- copy ---------- */
+const UI = {
+ ms:{h1:'Rumah adat <em>Malaysia</em>, dalam 3D',lead:'Putar, urai dan potong rumah tradisional dari seluruh Malaysia. Ketik mana-mana bahagian untuk tahu fungsi dan maknanya.',hint:'Seret untuk putar · cubit/skrol untuk zum · ketik bahagian',explode:'Urai',cut:'✂️ Potong',spin:'🔄 Putar',reset:'↺ Semula',made:'Dibuat untuk',by:'oleh',note:'Diilhamkan oleh',parts:'Bahagian rumah',tap:'Ketik bahagian pada model atau senarai di atas.',region:'Negeri',f1:'rumah adat',f2:'negeri & wilayah diwakili',f3:'bahagian boleh diterokai',f4:'tiang bawah rumah, tiada paku asal'},
+ en:{h1:'Traditional houses of <em>Malaysia</em>, in 3D',lead:'Spin, explode and cut open traditional houses from across Malaysia. Tap any part to learn what it does and what it means.',hint:'Drag to rotate · pinch/scroll to zoom · tap a part',explode:'Explode',cut:'✂️ Cut',spin:'🔄 Spin',reset:'↺ Reset',made:'Made for',by:'by',note:'Inspired by',parts:'Parts of the house',tap:'Tap a part on the model or in the list above.',region:'State',f1:'traditional houses',f2:'states & regions represented',f3:'parts to explore',f4:'raised on posts, built without nails originally'}
+};
+const P = { // shared part descriptions
+ tiang:{ms:['Tiang','Tiang kayu mengangkat rumah dari tanah, melindungi daripada banjir, binatang dan lembapan. Ruang bawah rumah (kolong) dipakai untuk berehat, bertukang dan menyimpan barang.'],en:['Posts (tiang)','Timber posts lift the house off the ground, protecting it from floods, animals and damp. The space beneath is used for resting, crafts and storage.']},
+ lantai:{ms:['Lantai','Papan lantai sering dipasang jarang-jarang supaya angin dari bawah menyejukkan rumah dan habuk mudah disapu jatuh.'],en:['Floor (lantai)','Floorboards are often laid with small gaps so air from below cools the house and dust can be swept through.']},
+ dinding:{ms:['Dinding','Dinding papan atau anyaman buluh yang ringan dan bernafas, sesuai untuk iklim panas lembap.'],en:['Walls (dinding)','Light, breathable walls of timber boards or woven bamboo, suited to the hot and humid climate.']},
+ tingkap:{ms:['Tingkap','Tingkap besar dan rendah, separas orang duduk di lantai, memberi pengudaraan silang dan pandangan ke luar.'],en:['Windows (tingkap)','Large, low windows at the eye level of people seated on the floor give cross-ventilation and a view outside.']},
+ tangga:{ms:['Tangga','Pintu masuk utama ke rumah. Menurut kepercayaan lama, bilangan anak tangga lazimnya ganjil.'],en:['Stairs (tangga)','The main way into the house. By old custom the number of steps is usually odd.']},
+ bumbung:{ms:['Bumbung','Bumbung curam menyalurkan hujan lebat dengan cepat, dan ruang udara di bawahnya mengurangkan haba.'],en:['Roof (bumbung)','A steep roof sheds heavy tropical rain quickly, and the air space under it keeps the heat out.']},
+ tebar:{ms:['Tebar layar & pemeleh','Panel segi tiga di hujung bumbung dengan papan pemeleh berukir. Ukiran berlubang membolehkan udara panas keluar.'],en:['Gable panel & bargeboards','The triangular gable end with carved bargeboards (pemeleh). Pierced carvings let hot air escape.']},
+ tanduk:{ms:['Tanduk bumbung','Hujung bumbung melengkung ke atas seperti tanduk, ciri pengaruh Minangkabau yang dibawa ke Negeri Sembilan.'],en:['Roof horns','Roof ends sweep up like horns, a Minangkabau influence brought to Negeri Sembilan.']},
+ serambi:{ms:['Serambi','Ruang hadapan yang separuh terbuka untuk menyambut tetamu lelaki dan berbual tanpa masuk ke rumah ibu.'],en:['Verandah (serambi)','A semi-open front space for receiving guests and chatting without entering the main house.']},
+ tanggabatu:{ms:['Tangga batu berjubin','Tangga konkrit berhias jubin berwarna, ciri ikonik Rumah Melaka hasil pengaruh perdagangan dan Peranakan.'],en:['Tiled stone stairs','Concrete stairs decorated with colourful tiles, an icon of Melaka houses shaped by trade and Peranakan influence.']},
+ ruai:{ms:['Ruai','Galeri bersama memanjang di sepanjang rumah panjang: tempat bermesyuarat, menenun, berpesta dan menerima tetamu.'],en:['Ruai','The long shared gallery of the longhouse: for meetings, weaving, festivals and receiving guests.']},
+ tanju:{ms:['Tanju','Pelantar terbuka tanpa bumbung untuk menjemur padi, pakaian dan hasil tangkapan.'],en:['Tanju','An open, unroofed platform for drying rice, clothes and the day\'s catch.']},
+ bilik:{ms:['Bilik','Unit keluarga persendirian. Setiap keluarga mempunyai bilik sendiri bersambung dengan ruai bersama.'],en:['Bilik','A private family unit. Each family owns one, all joined by the shared ruai.']},
+ limas:{ms:['Bumbung limas','Bumbung empat cerun yang lebih tahan angin, dipengaruhi seni bina era kolonial dan istana.'],en:['Hipped roof (limas)','A four-sided roof that stands up better to wind, influenced by palace and colonial-era design.']}
+};
+const HOUSES = [
+ {id:'kutai',name:'Rumah Kutai',state:{ms:'Perak',en:'Perak'},
+  desc:{ms:'Antara rumah Melayu tertua di Perak, dibina di tebing Sungai Perak. Dinding anyaman buluh (kelarai) dan bumbung atap nipah menjadikannya ringan dan sejuk.',en:'One of the oldest Malay house types in Perak, built along the Perak River. Woven bamboo walls and thatched nipah roof keep it light and cool.'},
+  L:7,D:5,postH:1.9,nx:4,nz:3,wallH:2.2,wall:0xc7a06a,post:0x6b4a2b,roof:{type:'gable',h:2.7,oh:.8,curve:0,color:0x6e5a38},extras:['tebar']},
+ {id:'tiang12',name:'Rumah Tiang Dua Belas',state:{ms:'Kelantan & Terengganu',en:'Kelantan & Terengganu'},
+  desc:{ms:'Dinamakan sempena 12 tiang utamanya. Terkenal dengan bumbung genting, tebar layar dan papan pemeleh berukir halus.',en:'Named after its 12 main posts. Known for its clay-tile roof, gable panels and finely carved bargeboards.'},
+  L:7.5,D:5.2,postH:1.6,nx:4,nz:3,wallH:2.3,wall:0x8a552c,post:0x5a3a20,roof:{type:'gable',h:2.4,oh:.7,curve:.25,color:0xa4472c},extras:['tebar']},
+ {id:'melaka',name:'Rumah Melaka',state:{ms:'Melaka',en:'Melaka'},
+  desc:{ms:'Rumah panggung dengan serambi dan tangga batu berjubin berwarna-warni, cerminan sejarah Melaka sebagai pelabuhan dagang.',en:'A raised house with a verandah and colourful tiled stone stairs, reflecting Melaka\'s history as a trading port.'},
+  L:8,D:5.4,postH:1.7,nx:4,nz:3,wallH:2.3,wall:0x9a6a3b,post:0x5b3b22,roof:{type:'gable',h:2.3,oh:.7,curve:.1,color:0x8c3b26},extras:['serambi','tanggabatu','tebar']},
+ {id:'n9',name:'Rumah Bumbung Panjang',state:{ms:'Negeri Sembilan',en:'Negeri Sembilan'},
+  desc:{ms:'Rumah Minangkabau Negeri Sembilan dengan bumbung panjang yang melengkung naik di kedua-dua hujung seperti tanduk kerbau.',en:'The Minangkabau house of Negeri Sembilan, with a long roof that sweeps up at both ends like buffalo horns.'},
+  L:8,D:5,postH:1.7,nx:4,nz:3,wallH:2.2,wall:0x7d5230,post:0x4e321c,roof:{type:'gable',h:2.6,oh:.9,curve:1.7,color:0x3b3127},extras:['tanduk','tebar']},
+ {id:'limas',name:'Rumah Limas',state:{ms:'Johor',en:'Johor'},
+  desc:{ms:'Rumah dengan bumbung limas empat cerun, popular di Johor dan bandar-bandar pantai pada akhir abad ke-19.',en:'A house with a four-sided hipped roof, popular in Johor and coastal towns in the late 19th century.'},
+  L:7.5,D:6,postH:1.6,nx:4,nz:3,wallH:2.3,wall:0xb98a55,post:0x5f4026,roof:{type:'hip',h:2.4,oh:.7,color:0x7a3424},extras:['limas']},
+ {id:'panjang',name:'Rumah Panjang',state:{ms:'Sarawak',en:'Sarawak'},
+  desc:{ms:'Rumah panjang Iban menempatkan seluruh komuniti di bawah satu bumbung: deretan bilik keluarga, ruai bersama dan tanju terbuka.',en:'The Iban longhouse holds a whole community under one roof: a row of family bilik, a shared ruai and an open tanju.'},
+  L:17,D:5.5,postH:2.4,nx:9,nz:3,wallH:2.3,wall:0x8f6b45,post:0x4a3420,roof:{type:'gable',h:2.2,oh:.7,curve:0,color:0x5d4e36},extras:['ruai','tanju','bilik'],longhouse:true}
+];
+
+let lang = localStorage.getItem('lang') || (/^(ms|id)/i.test(navigator.language)?'ms':'ms');
+const t = k => UI[lang][k];
+
+/* ---------- three setup ---------- */
+const viewer = document.getElementById('viewer');
+const renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.localClippingEnabled = true;
+renderer.shadowMap.enabled = true;
+viewer.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40,1,.1,200);
+const controls = new OrbitControls(camera,renderer.domElement);
+controls.enableDamping = true; controls.maxPolarAngle = Math.PI*.49; controls.minDistance=6; controls.maxDistance=60;
+scene.add(new THREE.HemisphereLight(0xfff6e6,0x8a7560,1.6));
+const sun = new THREE.DirectionalLight(0xfff1d6,2.2); sun.position.set(10,18,12); sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-15,right:15,top:15,bottom:-15});
+scene.add(sun);
+const ground = new THREE.Mesh(new THREE.CircleGeometry(30,64),new THREE.MeshStandardMaterial({color:0xd8c7a6,roughness:1}));
+ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; scene.add(ground);
+const clip = new THREE.Plane(new THREE.Vector3(0,0,-1),0);
+
+let house=null, parts=[], selected=null, cutOn=false;
+function mat(c){return new THREE.MeshStandardMaterial({color:c,roughness:.85,side:THREE.DoubleSide,clippingPlanes:cutOn?[clip]:[]})}
+function box(g,w,h,d,c,x,y,z){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat(c));m.position.set(x,y,z);m.castShadow=m.receiveShadow=true;g.add(m);return m}
+function part(key,dir){const g=new THREE.Group();g.userData={key,dir:new THREE.Vector3(...dir)};parts.push(g);house.add(g);return g}
+
+function roofSide(L,halfD,h,oh,curve,c,side){ // curved/straight gable roof plane
+  const seg=32, geo=new THREE.PlaneGeometry(1,1,seg,4), p=geo.attributes.position;
+  const len=L+oh*2;
+  for(let i=0;i<p.count;i++){
+    const u=p.getX(i)+.5, v=p.getY(i)+.5; const x=(u-.5)*len;
+    const n=Math.abs(x)/(len/2), lift=curve*Math.pow(n,3);
+    const z=side*(halfD+oh)*(1-v), y=v*h - (1-v)*oh*h/halfD*.5 + lift*(0.4+0.6*v);
+    p.setXYZ(i,x,y,z);
+  }
+  geo.computeVertexNormals(); const m=new THREE.Mesh(geo,mat(c)); m.castShadow=true; return m;
+}
+function gableTri(halfD,h,c,x){const s=new THREE.Shape();s.moveTo(-halfD,0);s.lineTo(halfD,0);s.lineTo(0,h);s.closePath();
+  const m=new THREE.Mesh(new THREE.ShapeGeometry(s),mat(c));m.rotation.y=Math.PI/2;m.position.x=x;return m}
+function hipRoof(L,D,h,oh,c){
+  const a=L/2+oh,b=D/2+oh,r=Math.max(a-b,.3);
+  const v=[-a,0,b, a,0,b, r,h,0, -r,h,0,  a,0,-b, -a,0,-b];
+  const idx=[0,1,2, 0,2,3, 4,5,3, 4,3,2, 1,4,2, 5,0,3];
+  const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(v,3));geo.setIndex(idx);geo.computeVertexNormals();
+  const m=new THREE.Mesh(geo,mat(c));m.castShadow=true;return m;
+}
+
+function build(H){
+  if(house){scene.remove(house);house.traverse(o=>{o.geometry?.dispose();o.material?.dispose()})}
+  house=new THREE.Group(); parts=[]; selected=null; scene.add(house);
+  const {L,D,postH,nx,nz,wallH}=H, fy=postH, top=fy+.15+wallH;
+  // posts
+  const tg=part('tiang',[0,-1.6,0]);
+  for(let i=0;i<nx;i++)for(let k=0;k<nz;k++){const x=-L/2+.2+i*(L-.4)/(nx-1),z=-D/2+.2+k*(D-.4)/(nz-1);box(tg,.22,top-.2,.22,H.post,x,(top-.2)/2,z);box(tg,.45,.18,.45,0x9b9285,x,.09,z)}
+  // floor
+  const fg=part('lantai',[0,-.4,0]);
+  box(fg,L+.1,.15,D+.1,0x7a5434,0,fy,0);
+  for(let i=0;i<6;i++)box(fg,L,.12,.12,0x5a3a20,0,fy-.13,-D/2+.2+i*(D-.4)/5);
+  // walls
+  const wg=part('dinding',[0,.6,0]); const wy=fy+.075+wallH/2, wt=.1;
+  const front=H.longhouse?D/2-1.8:D/2;
+  box(wg,L,wallH,wt,H.wall,0,wy,-D/2+wt/2);
+  box(wg,L,wallH,wt,H.wall,0,wy,front-wt/2);
+  box(wg,wt,wallH,front+D/2,H.wall,-L/2+wt/2,wy,(front-D/2)/2);
+  box(wg,wt,wallH,front+D/2,H.wall,L/2-wt/2,wy,(front-D/2)/2);
+  // plank lines for texture
+  for(let i=1;i<10;i++)box(wg,L+.02,.025,.02,0x000000,0,fy+.1+i*wallH/10,front+.005).material.opacity=.15,(wg.children.at(-1).material.transparent=true);
+  // windows + door
+  const win=part('tingkap',[0,0,1.4]); const nw=Math.max(2,Math.floor(L/2.4));
+  for(let i=0;i<nw;i++){const x=-L/2+(i+.5)*L/nw; if(!H.longhouse&&i===Math.floor(nw/2))continue;
+    box(win,.9,1.2,.06,0x3d2614,x,fy+1.25,front+.04);box(win,1.05,.08,.1,0xe8d9bf,x,fy+1.9,front+.06);box(win,1.05,.08,.1,0xe8d9bf,x,fy+.62,front+.06)}
+  box(win,.95,1.9,.06,0x2e1d10,H.longhouse?-L/2+1:0,fy+1.05,front+.04);
+  // stairs
+  if(!H.extras.includes('tanggabatu')){
+    const sg=part('tangga',[0,0,2.2]); const sx=H.longhouse?-L/2+1:0, z0=H.longhouse?D/2:front;
+    if(H.longhouse){const s=box(sg,.35,Math.hypot(fy,1.4),.35,0x6b4a2b,sx,fy/2,z0+.7);s.rotation.x=-Math.atan2(1.4,fy);for(let i=1;i<6;i++)box(sg,.4,.06,.12,0x3a2614,sx,i*fy/6,z0+1.4-i*1.4/6)}
+    else{const n=5;for(let i=0;i<n;i++)box(sg,1.2,.08,.32,0x6b4a2b,sx,(i+1)*fy/(n+.5),z0+.35+(n-1-i)*.3);
+      [-.62,.62].forEach(dx=>{const r=box(sg,.08,Math.hypot(fy,1.7),.14,0x5a3a20,sx+dx,fy/2,z0+.95);r.rotation.x=-Math.atan2(1.6,fy)})}
+  }
+  // roof
+  const rg=part(H.extras.includes('limas')?'limas':'bumbung',[0,2.6,0]); const ry=top;
+  if(H.roof.type==='hip'){const m=hipRoof(L,D,H.roof.h,H.roof.oh,H.roof.color);m.position.y=ry;rg.add(m)}
+  else{
+    [1,-1].forEach(s=>{const m=roofSide(L,D/2,H.roof.h,H.roof.oh,H.roof.curve,H.roof.color,s);m.position.y=ry;rg.add(m)});
+    box(rg,L+H.roof.oh*2,.12,.16,0x2b2018,0,ry+H.roof.h+.04,0);
+  }
+  // extras
+  if(H.extras.includes('tebar')||H.extras.includes('tanduk')){
+    const eg=part(H.extras.includes('tanduk')?'tanduk':'tebar',[0,2.2,0]);
+    const c=H.id==='tiang12'?0xd8b98a:0x6e4a2a;
+    [-1,1].forEach(s=>{const tri=gableTri(D/2,H.roof.h,c,s*(L/2));tri.position.y=ry;eg.add(tri);
+      for(let i=0;i<6;i++)box(eg,.05,H.roof.h*.6,.05,0x3a2614,s*(L/2+.03),ry+H.roof.h*.3,-D/3+i*(D*2/3)/5);
+      if(H.extras.includes('tanduk')){const horn=new THREE.Mesh(new THREE.ConeGeometry(.12,1.2,10),mat(0x2b2018));horn.position.set(s*(L/2+H.roof.oh+.15),ry+H.roof.h+H.roof.curve+.3,0);horn.rotation.z=-s*.5;eg.add(horn)}
+      else{[-1,1].forEach(z=>{const len=Math.hypot(D/2+H.roof.oh,H.roof.h)+.2;const b=box(eg,.07,len,.22,0xe0c48f,s*(L/2+H.roof.oh*.9),ry+H.roof.h/2-.05,z*(D/2+H.roof.oh)/2);b.rotation.x=z*Math.atan2(D/2+H.roof.oh,H.roof.h)})}
+    })
+  }
+  if(H.extras.includes('serambi')){
+    const sg=part('serambi',[0,.3,2.2]); const sz=D/2+1.3;
+    box(sg,3.6,.15,2.6,0x7a5434,0,fy,sz);[-1.7,1.7].forEach(x=>[sz-1.2,sz+1.2].forEach(z=>box(sg,.18,fy+2.2,.18,H.post,x,(fy+2.2)/2,z)));
+    box(sg,3.6,.5,.06,H.wall,0,fy+.35,sz+1.3);
+    const r=roofSide(3.6,1.4,1,.3,0,H.roof.color,1);r.position.set(0,fy+2.3,sz-1.3);r.scale.z=1.9;sg.add(r);
+  }
+  if(H.extras.includes('tanggabatu')){
+    const tg2=part('tanggabatu',[0,0,2.8]); const tiles=[0x2f7d6d,0xe0a93b,0xc8553d,0x3d6fb0,0xe8e0cf];
+    const z0=D/2+2.6,n=5;
+    for(let i=0;i<n;i++){const y=(i+1)*fy/(n+.5);box(tg2,1.5,y,0.34,0xf1ebe0,0,y/2,z0+(n-1-i)*.34+.17);box(tg2,1.5,y*.5,.02,tiles[i%5],0,y*.5,z0+(n-1-i)*.34+.35)}
+    [-.85,.85].forEach(x=>box(tg2,.2,fy+.3,n*.34,0xf6f1e8,x,(fy+.3)/2,z0+n*.17));
+  }
+  if(H.longhouse){
+    const rg2=part('ruai',[0,.2,1.6]); box(rg2,L,.16,1.8,0x8a6038,0,fy+.01,D/2-.9);
+    for(let i=0;i<nx;i++)box(rg2,.12,.12,1.8,0x5a3a20,-L/2+.2+i*(L-.4)/(nx-1),fy-.13,D/2-.9);
+    const tj=part('tanju',[0,-.2,3]); box(tj,L*.7,.12,2.4,0xa07a4f,L*.1,fy-.3,D/2+1.3);
+    for(let i=0;i<7;i++)[D/2+.3,D/2+2.3].forEach(z=>box(tj,.14,fy-.3,.14,H.post,L*.1-L*.33+i*L*.66/6,(fy-.3)/2,z));
+    for(let i=0;i<30;i++)box(tj,.04,.04,2.4,0x5a3a20,L*.1-L*.35+i*L*.7/29,fy-.22,D/2+1.3);
+    const bg=part('bilik',[0,1.2,-1]); const nb=6;
+    for(let i=1;i<nb;i++)box(bg,.08,wallH,D-1.8,0x6f5235,-L/2+i*L/nb,wy,-0.9);
+    for(let i=0;i<nb;i++)box(bg,.8,1.8,.06,0x2e1d10,-L/2+(i+.5)*L/nb,fy+1,D/2-1.84);
+  }
+  house.traverse(o=>{if(o.isMesh){o.userData.base=o.material.color.getHex()}});
+  parts.forEach(g=>g.userData.home=g.position.clone());
+  applyExplode(+document.getElementById('explode').value);
+  frame(H);
+}
+function frame(H){const a=viewer.clientWidth/viewer.clientHeight;const d=(Math.max(H.L,8)*1.35+6)*(a<1?1.6/Math.max(a,.5):1);camera.position.set(d*.75,d*.5,d*.9);controls.target.set(0,H.postH+1.8,0);controls.update()}
+function applyExplode(v){parts.forEach(g=>g.position.copy(g.userData.home).addScaledVector(g.userData.dir,v))}
+function setCut(on){cutOn=on;house.traverse(o=>{if(o.isMesh){o.material.clippingPlanes=on?[clip]:[];o.material.needsUpdate=true}})}
+function highlight(key){selected=key;parts.forEach(g=>g.traverse(o=>{if(o.isMesh){o.material.emissive?.setHex(g.userData.key===key?0x6a2a10:0)}}))}
+
+/* ---------- picking ---------- */
+const ray=new THREE.Raycaster(),ptr=new THREE.Vector2(),tip=document.getElementById('tip');let down=null;
+function hit(e){const r=renderer.domElement.getBoundingClientRect();ptr.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(ptr,camera);
+  const hs=ray.intersectObjects(parts,true).filter(h=>!cutOn||clip.distanceToPoint(h.point)>=0);if(!hs.length)return null;let o=hs[0].object;while(o&&!o.userData.key)o=o.parent;return o?.userData.key}
+renderer.domElement.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const k=hit(e);if(k){const r=viewer.getBoundingClientRect();tip.hidden=false;tip.textContent=P[k][lang][0];tip.style.left=e.clientX-r.left+'px';tip.style.top=e.clientY-r.top+'px';renderer.domElement.style.cursor='pointer'}else{tip.hidden=true;renderer.domElement.style.cursor=''}});
+renderer.domElement.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);
+renderer.domElement.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>6)return;const k=hit(e);select(k)});
+
+/* ---------- UI ---------- */
+let cur=HOUSES[0];
+function select(k){highlight(k);renderPanel()}
+function renderPanel(){
+  const keys=parts.map(g=>g.userData.key);
+  document.getElementById('panel').innerHTML=`<div class="state">${t('region')}: ${cur.state[lang]}</div><h2>${cur.name}</h2><p>${cur.desc[lang]}</p>
+  <div class="state" style="margin-top:14px">${t('parts')}</div><div class="parts">${keys.map(k=>`<button class="chip ${k===selected?'on':''}" data-k="${k}">${P[k][lang][0]}</button>`).join('')}</div>
+  ${selected?`<div class="part"><div class="t">${cur.name}</div><h3>${P[selected][lang][0]}</h3><p>${P[selected][lang][1]}</p></div>`:`<p style="color:var(--muted);font-size:13px">${t('tap')}</p>`}`;
+  document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>select(b.dataset.k===selected?null:b.dataset.k));
+}
+function renderPicker(){document.getElementById('picker').innerHTML=HOUSES.map(h=>`<button class="pick ${h===cur?'on':''}" data-id="${h.id}"><b>${h.name}</b><span>${h.state[lang]}</span></button>`).join('');
+  document.querySelectorAll('.pick').forEach(b=>b.onclick=()=>{cur=HOUSES.find(h=>h.id===b.dataset.id);build(cur);if(cutOn)setCut(true);renderPicker();renderPanel();history.replaceState(null,'','#'+cur.id)})}
+function renderText(){document.documentElement.lang=lang;document.querySelectorAll('[data-i]').forEach(e=>e.innerHTML=t(e.dataset.i));
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+  const n=new Set(Object.keys(P)).size;
+  document.getElementById('facts').innerHTML=[[HOUSES.length,t('f1')],[HOUSES.length,t('f2')],[n,t('f3')],['✓',t('f4')]].map(([a,b])=>`<div class="fact"><b>${a}</b><span>${b}</span></div>`).join('');
+  renderPicker();renderPanel()}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;localStorage.setItem('lang',lang);renderText()});
+document.getElementById('explode').oninput=e=>applyExplode(+e.target.value);
+document.getElementById('cut').onclick=e=>{setCut(!cutOn);e.currentTarget.classList.toggle('on',cutOn)};
+document.getElementById('spin').onclick=e=>{controls.autoRotate=!controls.autoRotate;e.currentTarget.classList.toggle('on',controls.autoRotate)};
+document.getElementById('reset').onclick=()=>{document.getElementById('explode').value=0;applyExplode(0);if(cutOn){setCut(false);document.getElementById('cut').classList.remove('on')}highlight(null);renderPanel();frame(cur)};
+
+function resize(){const w=viewer.clientWidth,h=viewer.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
+new ResizeObserver(resize).observe(viewer);
+cur=HOUSES.find(h=>'#'+h.id===location.hash)||HOUSES[0];
+resize();build(cur);renderText();document.getElementById('loading').remove();
+controls.autoRotateSpeed=1.2;
+renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
+</script>
+</body>
+</html>
